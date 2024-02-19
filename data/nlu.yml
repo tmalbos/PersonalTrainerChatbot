@@ -1,0 +1,257 @@
+version: "3.1"
+
+nlu:
+- intent: pedir_entrenamiento
+  examples: |
+    - Quiero comenzar un nuevo programa de entrenamiento. ¿Me puedes ayudar a crear uno?
+    - Necesito una rutina de ejercicios para [perder peso](objetivo). ¿Puedes recomendarme algo?
+    - No sé qué ejercicios hacer para [fortalecer](objetivo) mis brazos. ¿Me podrías ayudar?
+    - Quiero mejorar mi [resistencia](objetivo) para correr una carrera. ¿Puedes diseñar una rutina para mí?
+    - Estoy aburrido de mi rutina de entrenamiento actual. ¿Me puedes dar algunas ideas nuevas?
+    - Quiero enfocarme en la [tonificacion](objetivo) de mi cuerpo. ¿Tienes alguna rutina que me recomiendes?
+    - Soy nuevo en el gimnasio y no sé por dónde empezar. ¿Me puedes guiar?
+    - Necesito ejercicios de estiramiento para mejorar mi resistencia. ¿Puedes recomendarme algunos?
+- intent: proporcionar_informacion_personal
+  examples: |
+    - Tengo [25](edad) años, estoy en [buena forma](condicion_fisica) y tengo experiencia en [levantamiento de pesas](experiencia_deporte).
+    - Soy un [novato](experiencia_deporte) en esto del deporte, pero tengo [30](edad) años y estoy en [buena forma](condicion_fisica).
+    - Tengo [45](edad) años, tengo una condición física [media](condicion_fisica) y he estado practicando [natación](experiencia_deporte) durante varios años.
+    - Soy joven y [en forma](condicion_fisica), pero [no tengo](experiencia_deporte) experiencia en el deporte. Tengo [20](edad) años.
+    - Tengo [28](edad) años, [no estoy en la mejor](condicion_fisica) forma, pero he estado practicando [yoga](experiencia_deporte) durante algunos meses.
+    - Tengo [40](edad) años, tengo una [buena](condicion_fisica) condición física y tengo experiencia en el [levantamiento de pesas y el boxeo](experiencia_deporte).
+    - Tengo [50](edad) años, mi condición física [no es la mejor](condicion_fisica) y [no tengo](experiencia_deporte) experiencia previa con deportes.
+    - Mi condición física [no es muy buena](condicion_fisica), tengo [35](edad) años y [no he practicado](experiencia_deporte) ningún deporte antes.
+    - Soy joven, pero mi condición física es bastante [baja](condicion_fisica). Tengo [18](edad) años y [no tengo](experiencia_deporte) experiencia previa en deportes.
+    - Tengo [42](edad) años y aunque mi condición física [no es la mejor](condicion_fisica), he estado haciendo caminatas cortas. [No tengo](experiencia_deporte) experiencia previa en deportes.
+    - Mi condición física es [baja](condicion_fisica), tengo [29](edad) años y [nunca he practicado](experiencia_deporte) ningún deporte antes.
+    - Mi condición física [no es mala, pero tampoco excelente](condicion_fisica). Tengo [27](edad) años y [algo de experiencia en el gimnasio](experiencia_deporte).
+    - Tengo [35](edad) años, mi condición física es [media](condicion_fisica) y he estado practicando [fútbol](experiencia_deporte) de forma intermitente durante unos años.
+    - Mi experiencia en deporte es [promedio](experiencia_deporte), tengo [28](edad) años y mi condición física es [regular](condicion_fisica).
+    - Tengo una condición física [media](condicion_fisica) y he estado jugando [baloncesto](experiencia_deporte) desde hace algunos años, tengo [30](edad) años.
+    - He practicado [tenis](experiencia_deporte) de forma intermitente durante algunos años, tengo una condición física [promedio](condicion_fisica) y tengo [40](edad) años.
+    - Tengo [25](edad) años, estoy en [buena forma](condicion_fisica) y he estado practicando [fútbol](experiencia_deporte) durante 5 años.
+    - Soy un apasionado de los [deportes extremos](experiencia_deporte). Tengo [30](edad) años y estoy en [buena forma](condicion_fisica).
+    - Tengo [23](edad) años, en [excelente](condicion_fisica) condición física y con experiencia de 6 años en [calistenia y gimnasio](experiencia_deporte).
+    - Tengo [25](edad) años, estoy en [excelente](condicion_fisica) forma física y tengo experiencia en [levantamiento de pesas](experiencia_deporte).
+    - Tengo [28](edad) años, mi condición física es [bastante buena](condicion_fisica) y he estado practicando [natación](experiencia_deporte) durante años.
+    - Tengo [35](edad) años y estoy [en forma](condicion_fisica). He estado haciendo [yoga y pilates](experiencia_deporte) desde hace años.
+    - Tengo [20](edad) años, me mantengo [activo](condicion_fisica) y tengo experiencia en [correr maratones](experiencia_deporte).
+    - Soy joven, tengo [19](edad) años y estoy en [buena forma](condicion_fisica). He estado practicando [boxeo](experiencia_deporte) desde los 16 años.
+    - Estoy muy [en forma](condicion_fisica) a mis [34](edad) años. Aun asi, [no tengo](experiencia_deporte) experiencia entrenando.
+- intent: proporcionar_objetivo
+  examples: |
+    - Quiero aumentar mi [fuerza](objetivo)
+    - Me gustaría enfocarme en la [hipertrofia](objetivo)
+    - Busco mejorar mi [resistencia](objetivo) física
+    - Quiero [tonificar](objetivo) mi cuerpo
+    - Deseo [aumentar mi masa muscular](objetivo)
+    - Me gustaría mejorar mi rendimiento en deportes de [resistencia](objetivo)
+    - Quiero [aumentar mi capacidad cardiovascular](objetivo)
+    - Busco [reducir mi porcentaje de grasa corporal](objetivo)
+    - Quiero trabajar en mi postura y [aliviar dolores musculares](objetivo)
+    - Deseo aumentar mi velocidad y [explosividad](objetivo)
+    - Quiero aumentar mi [fuerza](objetivo) en la parte superior del cuerpo
+    - Mi objetivo principal es [ganar masa muscular](objetivo)
+    - Estoy enfocado en mejorar mi flexibilidad y [agilidad](objetivo)
+    - Quiero aumentar mi [fuerza y potencia](objetivo) para levantar más peso en el gimnasio
+    - Estoy buscando mejorar mi [resistencia](objetivo) cardiovascular
+    - Mi meta es desarrollar [músculos más grandes](objetivo) y fuertes en todo el cuerpo
+    - Quiero mejorar mi [fuerza máxima](objetivo)
+- intent: pregunta_calorias_diarias
+  examples: |
+    - ¿Cuál es la cantidad recomendada de calorías diarias para mantener mi peso actual?
+    - ¿Cuántas calorías debo consumir si quiero mantenerme saludable?
+    - ¿Cuántas calorías necesito para aumentar mi energía durante el día?
+    - ¿Cuál es la cantidad de calorías diarias recomendadas para mí?
+- intent: pregunta_alimentos_saludables
+  examples: |
+    - ¿Cuáles son algunos alimentos saludables que debería incluir en mi dieta diaria?
+    - Quiero mejorar mi alimentación. ¿Qué alimentos saludables me recomendarías?
+    - ¿Cuáles son algunas alternativas saludables a los alimentos procesados?
+    - ¿Qué alimentos debo incluir en una dieta equilibrada?
+- intent: pregunta_porcion_frver
+  examples: |
+    - ¿Cuántas porciones de frutas y verduras debo consumir al día para mantenerme saludable?
+    - Quiero mejorar mi alimentación. ¿Cuántas porciones de frutas y verduras debo incluir en mi dieta diaria?
+    - ¿Cuál es la cantidad recomendada de porciones de frutas y verduras que debo consumir al día?
+    - ¿Cuántas porciones de frutas y verduras son suficientes para obtener todos los nutrientes necesarios?
+- intent: pregunta_fuentes_proteina
+  examples: |
+    - ¿Cuáles son las mejores fuentes de proteínas para incluir en mi dieta?
+    - Estoy buscando opciones de alimentos ricos en proteínas. ¿Cuáles me recomendarías?
+    - Quiero aumentar mi ingesta de proteínas. ¿Cuáles son las mejores opciones de alimentos?
+    - Quiero construir músculo. ¿Cuáles son las mejores fuentes de proteínas para lograrlo?
+- intent: pregunta_precauciones
+  examples: |
+    - ¿Qué precauciones debo tomar para evitar lesiones durante el entrenamiento de calistenia?
+    - ¿Cómo puedo preparar mis articulaciones adecuadamente antes de hacer ejercicio?
+    - ¿Cuáles son las precauciones y ejercicios de calentamiento recomendados antes de empezar mi entrenamiento?
+    - ¿Cuáles son los mejores ejercicios de calentamiento para antes de levantar pesas?
+- intent: pregunta_tecnica_adecuada
+  examples: |
+    - ¿Qué consejos tienes para evitar lesiones al hacer levantamiento de pesas?
+    - ¿Cómo puedo asegurarme de mantener una técnica adecuada al realizar ejercicios de fuerza o levantamiento de pesas?
+    - ¿Cómo puedo mantener una postura adecuada al hacer ejercicios de levantamiento de pesas?
+    - ¿Qué recomendaciones tienes para evitar lesiones al hacer ejercicio en casa?
+    - Me podes dar algunos tips para mantener una buena tecnica al entrenar
+- intent: pregunta_dolor_ejercicio
+  examples: |
+    - ¿Qué debo hacer si siento dolor en las rodillas mientras hago sentadillas?
+    - ¿Qué debo hacer si siento dolor en la espalda baja al levantar pesas?
+    - ¿Es normal experimentar molestias en los hombros durante el entrenamiento de calistenia?
+- intent: pregunta_sobreentrenamiento
+  examples: |
+    - ¿Cuál es la importancia de los días de descanso en mi rutina de entrenamiento?
+    - ¿Cuáles son los signos de que estoy haciendo demasiado ejercicio y necesito descansar más?
+    - ¿Cuántos días a la semana debo entrenar para evitar el sobreentrenamiento?
+    - ¿Cómo puedo evitar el sobreentrenamiento y las lesiones por exceso de ejercicio?
+- intent: pregunta_descripcion_ejercicio
+  examples: |
+    - ¿Puedes darme una descripción detallada del ejercicio de [sentadillas](ejercicio)?
+    - Quisiera saber cómo realizar adecuadamente el [press de banca](ejercicio). ¿Podrías proporcionarme una descripción?
+    - ¿Cuál es la forma correcta de hacer [abdominales](ejercicio)? ¿Puedes darme una descripción?
+    - ¿Cómo se hace el ejercicio de [peso muerto](ejercicio)? ¿Puedes darme una descripción paso a paso?
+    - Necesito más información sobre el ejercicio de [estocadas](ejercicio). ¿Puedes darme una descripción detallada?
+    - ¿Cuál es la técnica correcta para hacer [fondos en paralelas](ejercicio)? ¿Puedes proporcionarme una descripción?
+    - ¿Cómo se realiza el ejercicio de [plancha](ejercicio) correctamente? ¿Puedes darme una descripción precisa?
+    - Tengo dudas sobre el ejercicio de [elevación de gemelos](ejercicio) en mi rutina. ¿Puedes darme una guía paso a paso?
+    - ¿Cómo debo realizar el ejercicio de [jalón a la cara](ejercicio) que tengo en mi rutina? ¿Puedes explicármelo?
+    - ¿Cómo se realiza correctamente el [levantamiento de peso muerto](ejercicio)?
+    - ¿Puedes explicarme cómo hacer la [sentadilla profunda](ejercicio) correctamente?
+    - Me gustaría conocer la técnica apropiada para realizar el [curl de bíceps con barra](ejercicio).
+    - ¿Podrías detallarme cómo se hace el [remo con mancuerna](ejercicio)?
+    - Quiero saber cómo hacer correctamente las [flexiones de brazos](ejercicio).
+    - ¿Puedes explicarme la técnica adecuada para hacer el [press militar](ejercicio)?
+    - Quiero conocer la forma correcta de hacer las [elevaciones laterales con mancuernas](ejercicio).
+    - ¿Cómo debo realizar los [abdominales en la rueda](ejercicio)?
+    - ¿Cómo hago el [puente de glúteos en el suelo](ejercicio)?
+    - Decime cómo hacer la [prensa con agarre invertido](ejercicio).
+    - ¿Cómo debería hacer la [extensión atrás de la cabeza](ejercicio)?
+    - ¿Me explicas como hacer el [muscle up](ejercicio)?
+- intent: pregunta_progresion_rutina
+  examples: |
+    - Completé la rutina del día [3](dia) y me fue genial. ¿Cómo puedo progresar?
+    - Hoy realicé el entrenamiento del día [7](dia). ¿Qué debería hacer para seguir avanzando?
+    - Terminé el día [2](dia) de la rutina sin problemas. ¿Cuál es el siguiente paso para mejorar?
+    - Hice la rutina del día [5](dia) y no tuve ningún problema. ¿Cómo progreso?
+    - Completé exitosamente el día [1](dia) del entrenamiento. ¿Cuál es mi siguiente desafío?
+    - Terminé el día [4](dia) de la rutina y estoy listo para seguir adelante. ¿Qué debo hacer ahora?
+    - Hoy me sentí muy bien haciendo el entrenamiento del día [6](dia). ¿Cómo puedo avanzar en la próxima sesión?
+    - Acabo de finalizar el día [7](dia) de la rutina. ¿Qué recomendaciones tienes para continuar mejorando?
+- intent: pedir_regeneracion_entrenamiento
+  examples: |
+    - Quiero una nueva rutina de entrenamiento, por favor.
+    - Necesito que me generes un nuevo plan de entrenamiento.
+    - Estoy aburrido de mi rutina actual, ¿puedes ayudarme con una nueva?
+    - Me gustaría cambiar mi rutina de ejercicios, ¿puedes regenerarla?
+    - Quiero probar algo nuevo en mi entrenamiento, ¿puedes generar una nueva rutina para mí?
+    - Mi rutina actual ya no me desafía, necesito algo nuevo. ¿Puedes ayudarme con eso?
+    - Estoy buscando un enfoque diferente en mi entrenamiento, ¿puedes crear una nueva rutina para mí?
+    - Me gustaría obtener un nuevo plan de entrenamiento adaptado a mis necesidades actuales.
+    - Mi objetivo ha cambiado y necesito una nueva rutina de ejercicios, ¿puedes ayudarme con eso?
+    - Quiero mejorar en áreas específicas, ¿puedes generar una rutina que se centre en eso?
+- intent: proporcionar_mejora
+  examples: |
+    - Sí, he notado una [gran](mejora_condicion_fisica) mejora en mi condición física. Estuve siguiendo la rutina anterior durante 3 [meses](tiempo_rutina) y mis resultados son increíbles
+    - He estado siguiendo la rutina anterior durante 8 [semanas](tiempo_rutina) y definitivamente he notado una [mejora](mejora_condicion_fisica) en mi resistencia y fuerza
+    - Desde que comencé la rutina anterior, he visto una mejora [significativa](mejora_condicion_fisica) en mi capacidad cardiovascular. La seguí durante 4 [meses](tiempo_rutina)
+    - Mi fuerza ha [aumentado notablemente](mejora_condicion_fisica) desde que comencé la rutina anterior. La he estado siguiendo durante 5 [meses](tiempo_rutina) y los resultados son notables
+    - Mi resistencia ha mejorado [considerablemente](mejora_condicion_fisica). Estuve siguiendo la rutina anterior durante 6 [semanas](tiempo_rutina) y ya puedo notar la diferencia
+    - Lamentablemente, solo pude seguir la rutina anterior durante un par de [semanas](tiempo_rutina) antes de tener que detenerme. [No he experimentado cambios notables](mejora_condicion_fisica) en ese corto tiempo
+    - En realidad, he experimentado un [pequeño retroceso](mejora_condicion_fisica) en mi condición física. Seguí la rutina anterior durante 2 [meses](tiempo_rutina), pero luego tuve que hacer una pausa y he perdido algo de progreso
+    - Sí, he notado una mejora [significativa](mejora_condicion_fisica) en mi fuerza y resistencia desde que comencé la rutina anterior hace 3 [meses](tiempo_rutina).
+    - ¡Claro que sí! He experimentado una [mejora](mejora_condicion_fisica) en mi condición física y en mi rendimiento general. Hice la rutina por 1 [año](tiempo_rutina).
+    - [He mejorado](mejora_condicion_fisica) mi fuerza y mi resistencia cardiovascular después de seguir la rutina anterior durante un par de [meses](tiempo_rutina).
+- intent: confirmar_objetivo
+  examples: |
+    - Sí, mi objetivo sigue siendo la [fuerza](objetivo). Confirmo que quiero continuar trabajando en mejorar mi fuerza muscular
+    - No, mi objetivo ha cambiado. Ahora me estoy enfocando más en la [resistencia](objetivo). No quiero seguir con el mismo objetivo
+    - Hmm, déjame pensar... creo que sí, mi objetivo sigue siendo la [pérdida de peso](objetivo). Sí, es correcto
+    - En realidad, me gustaría ajustar mi objetivo. Ahora estoy más interesado en trabajar en la [tonificación muscular](objetivo). ¿Podemos actualizar eso?
+    - Sí, mi objetivo sigue siendo el mismo: mejorar mi [resistencia cardiovascular](objetivo). Puedes proceder con la generación de la nueva rutina
+
+# Sinonimos referidos a la entidad condicion_fisica
+- synonym: baja
+  examples: |
+    - no estoy en la mejor
+    - no es la mejor
+    - no es muy buena
+- synonym: media
+  examples: |
+    - no es mala, pero tampoco excelente
+    - regular
+    - promedio
+- synonym: alta
+  examples: |
+    - buena forma
+    - en forma
+    - buena
+    - excelente
+    - muy activo
+    - bastante buena
+    - activo
+    - forma
+
+# Sinonimos referidos a la entidad experiencia_deporte
+- synonym: nula
+  examples: |
+    - novato
+    - no tengo
+    - no he practicado
+    - nunca he practicado
+- synonym: poca
+  examples: |
+    - yoga
+    - he practicado
+    - algo de experiencia en el gimnasio
+    - yoga y pilates
+- synonym: promedio
+  examples: |
+    - natación
+    - fútbol
+    - baloncesto
+    - tenis
+    - corriendo y haciendo yoga
+    - natación y ciclismo
+- synonym: mucha
+  examples: |
+    - calistenia y levantamiento de pesas
+    - levantamiento de pesas
+    - levantamiento de pesas y el boxeo
+    - he corrido en algunos maratones
+    - gimnasio
+    - calistenia
+    - calistenia y gimnasio
+    - deportes extremos
+    - correr maratones
+
+# Sinonimos referidos a la entidad objetivo
+- synonym: fuerza
+  examples: |
+    - explosividad
+    - fuerza y potencia
+    - fuerza máxima
+- synonym: hipertrofia
+  examples: |
+    - tonificar
+    - aumentar mi masa muscular
+    - aliviar dolores musculares
+    - fortalecer
+    - tonificacion
+    - ganar masa muscular
+    - músculos más grandes
+- synonym: resistencia
+  examples: |
+    - aumentar mi capacidad cardiovascular
+    - reducir mi porcentaje de grasa corporal
+    - perder peso
+    - agilidad
+
+# Sinonimos referidos a la entidad tiempo_rutina
+- synonym: semanas
+  examples: |
+    - dias
+    - mes
+- synonym: meses
+  examples: |
+    - año

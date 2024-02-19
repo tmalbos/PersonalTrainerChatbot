@@ -1,0 +1,173 @@
+version: "3.1"
+
+intents:
+  - pedir_entrenamiento
+  - proporcionar_informacion_personal
+  - proporcionar_objetivo
+  - pregunta_calorias_diarias
+  - pregunta_alimentos_saludables
+  - pregunta_porcion_frver
+  - pregunta_fuentes_proteina
+  - pregunta_precauciones
+  - pregunta_tecnica_adecuada
+  - pregunta_dolor_ejercicio
+  - pregunta_sobreentrenamiento
+  - pregunta_descripcion_ejercicio
+  - pregunta_progresion_rutina
+  - pedir_regeneracion_entrenamiento
+  - proporcionar_mejora
+  - confirmar_objetivo
+
+entities:
+  - edad
+  - condicion_fisica
+  - experiencia_deporte
+  - objetivo
+  - ejercicio
+  - mejora_condicion_fisica
+  - tiempo_rutina
+  - dia
+
+slots:
+  edad:
+    type: float
+    influence_conversation: false
+    min_value: 12.0
+    max_value: 120.0
+    mappings:
+    - type: from_entity
+      entity: edad
+  condicion_fisica:
+    type: categorical
+    influence_conversation: false
+    values:
+      - baja
+      - media
+      - alta
+    mappings:
+    - type: from_entity
+      entity: condicion_fisica
+  experiencia_deporte:
+    type: categorical
+    influence_conversation: false
+    values:
+      - nula
+      - poca
+      - promedio
+      - mucha
+    mappings:
+    - type: from_entity
+      entity: experiencia_deporte
+  objetivo:
+    type: categorical
+    influence_conversation: false
+    values:
+      - fuerza
+      - hipertrofia
+      - resistencia
+    mappings:
+    - type: from_entity
+      entity: objetivo
+  mejora_condicion_fisica:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: mejora_condicion_fisica
+  tiempo_rutina:
+    type: categorical
+    influence_conversation: false
+    values:
+      - semanas
+      - meses
+      - años
+    mappings:
+    - type: from_entity
+      entity: tiempo_rutina
+  dia:
+    type: float
+    influence_conversation: false
+    min_value: 1.0
+    max_value: 7.0
+    mappings:
+    - type: from_entity
+      entity: dia
+  ejercicio:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: ejercicio
+  rutina_generada:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: custom
+  separacion_dias:
+    type: any
+    mappings:
+    - type: custom
+  ejercicios:
+    type: any
+    mappings:
+    - type: custom
+  series:
+    type: any
+    mappings:
+    - type: custom
+  repeticiones:
+    type: any
+    mappings:
+    - type: custom
+
+responses:
+  utter_preguntar_informacion_personal:
+  - text: "¡Hola! Antes de empezar a crear tu plan de entrenamiento, necesito que me proporciones cierta información personal. ¿Podrías decirme tu edad, condición física actual y si tienes experiencia previa con algún deporte?"
+  utter_preguntar_objetivo:
+  - text: "¿Cuál es tu objetivo con respecto al entrenamiento?"
+  utter_presentar_plan_entrenamiento:
+  - text: "¡Excelente! He creado un plan de entrenamiento personalizado para ti."
+  utter_responder_calorias_diarias:
+  - text: "En promedio, se considera que una ingesta diaria de 2000 calorías es adecuada para un adulto sedentario como punto de referencia. Sin embargo, si tienes un estilo de vida más activo o estás buscando perder o ganar peso, es posible que necesites ajustar esa cantidad."
+  utter_responder_alimentos_saludables:
+  - text: "Frutas y verduras: Son fuentes ricas en vitaminas, minerales y fibra. Trata de incluir una amplia variedad de frutas y verduras de diferentes colores para obtener una gama diversa de nutrientes.\n
+           Granos enteros: Opta por granos enteros en lugar de granos refinados. Ejemplos de granos enteros son el arroz integral, la avena, el trigo integral y el pan integral. Estos son ricos en fibra y nutrientes esenciales.\n
+           Proteínas magras: Incluye fuentes de proteínas magras en tu dieta, como pollo, pavo, pescado, huevos, legumbres (lentejas, garbanzos, frijoles), tofu y productos lácteos bajos en grasa.\n
+           Lácteos bajos en grasa: Si consumes productos lácteos, elige opciones bajas en grasa o desnatadas, como leche descremada, yogur griego bajo en grasa o queso cottage.\n
+           Grasas saludables: Incorpora grasas saludables en tu dieta, como aguacates, nueces, semillas, aceite de oliva y pescados grasos como el salmón, que son ricos en ácidos grasos omega-3.\n
+           Limita el consumo de alimentos procesados, alimentos altos en grasas saturadas y grasas trans, azúcares añadidos y sodio. Estos alimentos suelen tener un bajo valor nutricional y pueden contribuir a problemas de salud a largo plazo."
+  utter_responder_porcion_frver:
+  - text: "Frutas: Se recomienda consumir de 2 a 4 porciones de frutas al día. Una porción puede ser una fruta de tamaño mediano, como una manzana o una naranja, o una taza de frutas picadas.\n
+           Verduras: Se recomienda consumir de 3 a 5 porciones de verduras al día. Una porción puede ser una taza de verduras crudas o media taza de verduras cocidas."
+  utter_responder_fuentes_proteina:
+  - text: "Carne magra: Pollo, pavo, carne de res magra (como el solomillo) y cerdo magro son opciones de carne rica en proteínas.\n
+           Pescado: El pescado es una excelente fuente de proteínas y ácidos grasos omega-3. Ejemplos de pescado saludable incluyen el salmón, el atún, la trucha, el bacalao y las sardinas.\n
+           Huevos: Los huevos son una fuente completa de proteínas y contienen una variedad de nutrientes esenciales. Puedes consumirlos cocidos, revueltos o en forma de tortillas.\n
+           Productos lácteos bajos en grasa: Leche, yogur, queso y requesón son fuentes de proteínas, especialmente si eliges las opciones bajas en grasa.\n
+           Legumbres: Las legumbres, como los frijoles, las lentejas y los garbanzos, son ricas en proteínas, fibra y otros nutrientes. Son una excelente opción si sigues una dieta vegetariana o vegana.\n
+           Tofu y tempeh: Estos productos derivados de la soja son ricos en proteínas y son opciones populares en las dietas vegetarianas y veganas.\n
+           Frutos secos y semillas: Almendras, nueces, semillas de chía, semillas de cáñamo y semillas de girasol son fuentes de proteínas y grasas saludables. Puedes agregarlos a ensaladas, batidos o consumirlos como bocadillos."
+  utter_responder_precauciones:
+  - text: "Antes de entrenar, es importante realizar un calentamiento adecuado que incluya ejercicios de movilidad articular, estiramientos dinámicos y un aumento gradual de la intensidad para preparar el cuerpo y reducir el riesgo de lesiones."
+  utter_responder_tecnica_adecuada:
+  - text: "Para mantener una técnica adecuada, es importante aprender y dominar la forma correcta de los ejercicios, comenzar con cargas ligeras, mantener una buena postura, prestar atención a la alineación corporal y trabajar con un espejo, un entrenador o un compañero de entrenamiento para obtener retroalimentación."
+  utter_responder_dolor_ejercicio:
+  - text: "Si experimentas dolor o molestias durante un ejercicio, es recomendable detenerte inmediatamente y evaluar la situación. Descansa, aplica hielo en la zona afectada y consulta con un profesional de la salud si el dolor persiste o empeora."
+  utter_responder_sobreentrenamiento:
+  - text: "Para evitar el sobreentrenamiento y las lesiones por exceso de ejercicio, es fundamental escuchar a tu cuerpo, respetar los tiempos de descanso y recuperación, variar tus rutinas de entrenamiento, mantener una progresión gradual, incluir días de descanso activo y buscar un equilibrio entre el ejercicio, la nutrición y el sueño adecuados."
+  utter_preguntar_mejora:
+  - text: "¿Has notado alguna mejora en tu condición física desde que comenzaste la rutina anterior? Además, ¿cuánto tiempo estuviste siguiendo esa rutina?"
+  utter_confirmar_objetivo:
+  - text: "Entendido. Antes de proceder a generar una nueva rutina, me gustaría confirmar si tu objetivo sigue siendo la {objetivo}. ¿Es correcto?"
+  utter_presentar_nuevo_plan_entrenamiento:
+  - text: "Aquí tienes tu nuevo plan de entrenamiento personalizado"
+
+actions:
+  - action_crear_plan_entrenamiento
+  - action_actualizar_slots
+  - action_explicar_ejercicio
+  - action_progresar_rutina
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

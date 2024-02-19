@@ -1,0 +1,35 @@
+version: "3.1"
+
+stories:
+- story: El usuario pide la creacion de una rutina de entrenamiento
+  steps:
+  - or:
+    - intent: pedir_entrenamiento
+    - intent: pedir_regeneracion_entrenamiento
+    - slot_was_set:
+      - rutina_generada: false
+  - action: utter_preguntar_informacion_personal
+  - intent: proporcionar_informacion_personal
+  - action: utter_preguntar_objetivo
+  - intent: proporcionar_objetivo
+  - checkpoint: routine_presentation
+
+- story: El usuario pide que se le regenere una nueva rutina de entrenamiento
+  steps:
+  - or:
+    - intent: pedir_regeneracion_entrenamiento
+    - intent: pedir_entrenamiento
+  - slot_was_set:
+    - rutina_generada: true
+  - action: utter_preguntar_mejora
+  - intent: proporcionar_mejora
+  - action: utter_confirmar_objetivo
+  - action: action_actualizar_slots
+  - intent: confirmar_objetivo
+  - checkpoint: routine_presentation
+
+- story: Se presenta el plan de pedir_entrenamiento
+  steps:
+  - checkpoint: routine_presentation
+  - action: utter_presentar_nuevo_plan_entrenamiento
+  - action: action_crear_plan_entrenamiento

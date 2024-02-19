@@ -1,0 +1,52 @@
+version: "3.1"
+
+rules:
+# rules relacionadas a preguntas de nutricion
+- rule: El usuario pregunta acerca de la cantidad de calorias que deberia consumir al dia
+  steps:
+    - intent: pregunta_calorias_diarias
+    - action: utter_responder_calorias_diarias
+- rule: El usuario pregunta acerca de los alimentos que deberia consumir
+  steps:
+    - intent: pregunta_alimentos_saludables
+    - action: utter_responder_alimentos_saludables
+- rule: El usuario pregunta acerca de la cantidad de fruta y verdura que deberia consumir al dia
+  steps:
+    - intent: pregunta_porcion_frver
+    - action: utter_responder_porcion_frver
+- rule: El usuario pregunta acerca de las mejores fuentes de proteina
+  steps:
+    - intent: pregunta_fuentes_proteina
+    - action: utter_responder_fuentes_proteina
+
+# rules relacionadas a preguntas de lesiones
+- rule: El usuario pregunta acerca de las precauciones y ejercicios de calentamiento recomendados
+  steps:
+    - intent: pregunta_precauciones
+    - action: utter_responder_precauciones
+- rule: El usuario pregunta acerca de la tecnica adecuada al realizar ejercicios
+  steps:
+    - intent: pregunta_tecnica_adecuada
+    - action: utter_responder_tecnica_adecuada
+- rule: El usuario pregunta acerca de que hacer ante dolor o molestias durante un ejercicio
+  steps:
+    - intent: pregunta_dolor_ejercicio
+    - action: utter_responder_dolor_ejercicio
+- rule: El usuario pregunta acerca de como evitar el sobreentrenamiento
+  steps:
+    - intent: pregunta_sobreentrenamiento
+    - action: utter_responder_sobreentrenamiento
+
+# otras reglas
+- rule: El usuario pregunta acerca de como deberia realizarse un ejercicio de su rutina
+  steps:
+    - intent: pregunta_descripcion_ejercicio
+    - action: action_explicar_ejercicio
+
+- rule: El usuario quiere progresar en un dia especifico de su rutina
+  condition:
+  - slot_was_set:
+    - rutina_generada: true
+  steps:
+    - intent: pregunta_progresion_rutina
+    - action: action_progresar_rutina
